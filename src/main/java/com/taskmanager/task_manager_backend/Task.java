@@ -1,17 +1,19 @@
 package com.taskmanager.task_manager_backend;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "tasks")
 public class Task {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
+
     private String title;
     private String date;
 
     public Task() {}
-
-    public Task(Integer id, String title, String date) {
-        this.id = id;
-        this.title = title;
-        this.date = date;
-    }
 
     public Integer getId() { return id; }
     public void setId(Integer id) { this.id = id; }
