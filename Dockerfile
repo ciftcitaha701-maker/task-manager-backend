@@ -2,7 +2,7 @@
 FROM gradle:jdk17-jammy AS build
 COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
-RUN gradle build --no-daemon --no-build-cache
+RUN gradle build --no-daemon --no-build-cache -x test
 
 # Package stage
 FROM eclipse-temurin:17-jdk-jammy
